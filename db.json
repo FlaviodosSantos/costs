@@ -1,5 +1,12 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "id": 1
+    },
+    {
+      "id": 2
+    }
+  ],
   "categories": [
     {
       "id": 1,

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 //import { useHistory } from "react-router-dom";
 
 function NewProject() {
-  //const history = useHistory();
+  //const history = useHistory(); react v5
   const history = useNavigate();
 
   function createPost(project) {
@@ -16,7 +16,7 @@ function NewProject() {
     fetch("http://localhost:5000/projects", {
       method: "POST",
       headers: {
-        "Content-type": "application/jason",
+        "Content-type": "application/json",
       },
       body: JSON.stringify(project),
     })
@@ -24,6 +24,8 @@ function NewProject() {
       .then((data) => {
         console.log(data);
         //redirect
+        //history.push("/projects", { message: "Projeto criado com sucesso !" }); react v5
+        history("/projects", { message: "Projeto criado com sucesso !" });
       })
       .catch((err) => console.log());
   }
