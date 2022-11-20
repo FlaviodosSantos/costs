@@ -25,7 +25,9 @@ function NewProject() {
         console.log(data);
         //redirect
         //history.push("/projects", { message: "Projeto criado com sucesso !" }); react v5
-        history("/projects", { message: "Projeto criado com sucesso !" });
+        history("/projects", {
+          state: { message: "Projeto criado com sucesso !" },
+        });
       })
       .catch((err) => console.log());
   }
