@@ -111,28 +111,6 @@
       "id": 10
     },
     {
-      "name": "Flavio Roberto Oliveira dos Santos",
-      "budget": "54169871365",
-      "category": {
-        "id": "2",
-        "name": "Desenvolvimento"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 11
-    },
-    {
-      "name": "FLAVIO R O DOS SANTOS",
-      "budget": "68435",
-      "category": {
-        "id": "4",
-        "name": "Planejamento"
-      },
-      "cost": 0,
-      "services": [],
-      "id": 12
-    },
-    {
       "name": "testando",
       "budget": "4568",
       "category": {
