@@ -12,6 +12,7 @@ import Loading from "../layout/Loading";
 function Projects() {
   const [projects, setProjests] = useState([]);
   const [removeLoading, setRemoveLoading] = useState(false);
+  const [projectMessage, setprojectMessage] = useState("");
 
   const location = useLocation();
   let message = "";
@@ -47,7 +48,7 @@ function Projects() {
       .then((resp) => resp.json())
       .then((data) => {
         setProjests(projects.filter((project) => project.id !== id));
-        //message
+        setprojectMessage("projeto removido com sucesso !");
       })
       .catch((err) => console.log(err));
   }
@@ -59,6 +60,7 @@ function Projects() {
         <LinkButton to="/newproject" text="Criar Projetos" />
       </div>
       {message && <Message type="success" msg={message} />}
+      {projectMessage && <Message type="success" msg={projectMessage} />}
       <Container customClass="start">
         {projects.length > 0 &&
           projects.map((project) => (
