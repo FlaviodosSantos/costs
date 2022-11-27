@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import Loading from "../layout/Loading";
+import Container from "../layout/Container";
 
 function Project() {
   const { id } = useParams();
@@ -25,7 +26,22 @@ function Project() {
     }, 500);
   }, [id]);
 
-  return <>{project.name ? <p>{project.name}</p> : <Loading />}</>;
+  return (
+    <>
+      {project.name ? (
+        <div>
+          <Container customClass="column">
+            <div>
+              <h1>Projeto: {project.name}</h1>
+              <button>Editar projeto</button>
+            </div>
+          </Container>
+        </div>
+      ) : (
+        <Loading />
+      )}
+    </>
+  );
 }
 
 export default Project;
