@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import Loading from "../layout/Loading";
 import Container from "../layout/Container";
 
+import ProjectForm from "../project/ProjectForm";
+
 function Project() {
   const { id } = useParams();
   const [project, setProject] = useState([]);
@@ -26,6 +28,28 @@ function Project() {
         .catch((err) => console.log);
     }, 500);
   }, [id]);
+
+  function editPost(project) {
+    // buget validation
+    if (project.budget < project.cost) {
+      //mensagem
+    }
+
+    fetch(`http://localhost:5000/projects/${project.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(project),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        setProject(data);
+        setShowProjectForm(false);
+        // mesagem
+      })
+      .catch((err) => console.log(err));
+  }
 
   function toggleProjectForm() {
     setShowProjectForm(!showProjectForm);
@@ -55,7 +79,11 @@ function Project() {
                 </div>
               ) : (
                 <div className={styles.project_info}>
-                  <p>Form</p>
+                  <ProjectForm
+                    handleSubmit={editPost}
+                    btnText="Concluir edição"
+                    projectData={project}
+                  />
                 </div>
               )}
             </div>
