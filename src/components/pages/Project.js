@@ -7,11 +7,14 @@ import Loading from "../layout/Loading";
 import Container from "../layout/Container";
 
 import ProjectForm from "../project/ProjectForm";
+import Message from "../layout/Message";
 
 function Project() {
   const { id } = useParams();
   const [project, setProject] = useState([]);
   const [showProjectForm, setShowProjectForm] = useState(false);
+  const [message, setMessage] = useState();
+  const [type, setType] = useState();
 
   useEffect(() => {
     setTimeout(() => {
@@ -32,7 +35,9 @@ function Project() {
   function editPost(project) {
     // buget validation
     if (project.budget < project.cost) {
-      //mensagem
+      setMessage("O orçamento não pode ser menor que o custo do projeto!");
+      setType("error");
+      return false;
     }
 
     fetch(`http://localhost:5000/projects/${project.id}`, {
@@ -46,7 +51,8 @@ function Project() {
       .then((data) => {
         setProject(data);
         setShowProjectForm(false);
-        // mesagem
+        setMessage("Projeto atualizado !");
+        setType("success");
       })
       .catch((err) => console.log(err));
   }
@@ -60,6 +66,7 @@ function Project() {
       {project.name ? (
         <div className={styles.project_details}>
           <Container customClass="column">
+            {message && <Message type={type} msg={message} />}
             <div className={styles.details_container}>
               <h1>Projeto: {project.name}</h1>
               <button className={styles.btn} onClick={toggleProjectForm}>
