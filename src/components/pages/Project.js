@@ -1,4 +1,5 @@
 import styles from "./Project.module.css";
+import { parse, v4 as uuidv4 } from "path/posix";
 
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -60,7 +61,11 @@ function Project() {
       .catch((err) => console.log(err));
   }
 
-  function createService() {}
+  function createService(project) {
+    // last service
+    const lastService = project.services[project.services.length - 1];
+    lastService.id = uuidv4();
+  }
 
   function toggleProjectForm() {
     setShowProjectForm(!showProjectForm);
