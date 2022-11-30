@@ -1,7 +1,7 @@
 import styles from "./Project.module.css";
 import { parse, v4 as uuidv4 } from "uuid";
 
-import { useParams } from "react-router-dom";
+import { json, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import Loading from "../layout/Loading";
@@ -62,6 +62,8 @@ function Project() {
   }
 
   function createService(project) {
+    setMessage("");
+
     // last service
     const lastService = project.services[project.services.length - 1];
     lastService.id = uuidv4();
@@ -77,6 +79,26 @@ function Project() {
       project.services.pop();
       return false;
     }
+
+    // add service cost to project total cost
+    project.cost = newCost;
+
+    // update project
+    fetch(`http://localhost:5000/projects/${project.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(project),
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        // exibir os serviços
+        console.log(data);
+        setMessage("Serviço adicionado ao projeto!");
+        setType("success");
+      })
+      .catch((err) => console.log(err));
   }
 
   function toggleProjectForm() {
