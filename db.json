@@ -7,8 +7,15 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 600,
+      "services": [
+        {
+          "name": "contratar dev php",
+          "cost": "600",
+          "description": "dev php",
+          "id": "503e3e43-23cb-4e9a-bea5-130f89fbfcab"
+        }
+      ],
       "id": 1
     },
     {
@@ -18,7 +25,7 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 1684,
+      "cost": 6684,
       "services": [
         {
           "name": "teste serviço",
@@ -43,6 +50,12 @@
           "cost": "444",
           "description": "testando serviço 4",
           "id": "d44d36a3-16c6-4acc-a64c-7cce06889ab7"
+        },
+        {
+          "name": "teste 5",
+          "cost": "5000",
+          "description": "teste5",
+          "id": "03fca0e1-9343-40cd-a57b-f6bfd002f056"
         }
       ],
       "id": 2
@@ -65,8 +78,15 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 1200,
+      "services": [
+        {
+          "name": "serviço 1",
+          "cost": "1200",
+          "description": "alguma coisa",
+          "id": "e3533a74-e067-4a6c-a90e-7e76b5ef9f13"
+        }
+      ],
       "id": 4
     },
     {
