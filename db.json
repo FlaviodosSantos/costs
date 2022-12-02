@@ -25,37 +25,13 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 6684,
+      "cost": 5000,
       "services": [
         {
-          "name": "teste serviço",
-          "cost": "800",
-          "description": "testando serviço",
-          "id": "7ed7b936-1022-42d0-9000-62153641420b"
-        },
-        {
-          "name": "teste serviço 2",
-          "cost": "400",
-          "description": "testando serviço 2",
-          "id": "3b946614-b20f-4c51-8d55-3c018eb2311b"
-        },
-        {
-          "name": "teste serviço 3",
-          "cost": "40",
-          "description": "testando serviço 3",
-          "id": "ba88a168-0ef1-4b43-88fe-a310ef50b177"
-        },
-        {
-          "name": "teste serviço 4",
-          "cost": "444",
-          "description": "testando serviço 4",
-          "id": "d44d36a3-16c6-4acc-a64c-7cce06889ab7"
-        },
-        {
-          "name": "teste 5",
-          "cost": "5000",
-          "description": "teste5",
-          "id": "03fca0e1-9343-40cd-a57b-f6bfd002f056"
+          "name": "serviço 6",
+          "cost": "10000",
+          "description": "mais um serviço",
+          "id": "939445f2-49e1-4a34-8a54-16687c5873d6"
         }
       ],
       "id": 2
